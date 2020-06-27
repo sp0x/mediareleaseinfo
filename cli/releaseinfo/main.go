@@ -5,11 +5,11 @@ import (
 	"log"
 	"os"
 
-	"github.com/sp0x/releaseinfo"
+	"github.com/sp0x/mediareleaseinfo"
 )
 
 func main() {
-	result, err := releaseinfo.Parse(os.Args[1])
+	result, err := mediareleaseinfo.Parse(os.Args[1])
 	if err != nil {
 		log.Fatal(err)
 	}
