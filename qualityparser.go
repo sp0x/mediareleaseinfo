@@ -1,4 +1,4 @@
-﻿package releaseinfo
+package releaseinfo
 
 import (
 	"path/filepath"
@@ -53,6 +53,7 @@ func (s sourceMatches) Has(key string) bool {
 
 func findSourceMatches(name string) sourceMatches {
 	matches := sourceMatches{}
+
 	sourceMatch, _ := sourceRegex.FindStringMatch(name)
 
 	for sourceMatch != nil {
@@ -321,7 +322,7 @@ func otherSourceMatch(name string) Quality {
 	return QualityUnknown
 }
 
-func parseQualityModifiers(name string, normalizedName string) QualityModel {
+func parseQualityModifiers(_ string, normalizedName string) QualityModel {
 	result := QualityModel{Quality: QualityUnknown, QualitySource: "name"}
 
 	versionRegexResult, _ := versionRegex.FindStringMatch(normalizedName)

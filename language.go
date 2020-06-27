@@ -1,4 +1,4 @@
-﻿package releaseinfo
+package releaseinfo
 
 import (
 	"errors"
@@ -24,6 +24,9 @@ func ParseLanguage(title string) language.Tag {
 
 	if strings.Contains(lowerTitle, "english") {
 		return language.English
+	}
+	if strings.Contains(lowerTitle, "bulgarian") {
+		return language.Bulgarian
 	}
 
 	if strings.Contains(lowerTitle, "french") {
@@ -104,6 +107,10 @@ func ParseLanguage(title string) language.Tag {
 		return language.English
 	}
 
+	if hasGroup(match, "bulgarian") {
+		return language.Bulgarian
+	}
+
 	if hasGroup(match, "italian") {
 		return language.Italian
 	}
@@ -150,5 +157,5 @@ func ParseSubtitleLanguage(fileName string) (language.Tag, error) {
 		return language.Make(getMatchGroupString(languageMatch, "iso_code")), nil
 	}
 
-	return language.Tag{}, errors.New("Unable to find a subtitle language")
+	return language.Tag{}, errors.New("unable to find a subtitle language")
 }
