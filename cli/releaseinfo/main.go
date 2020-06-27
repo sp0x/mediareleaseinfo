@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/cardigann/releaseinfo"
+	"github.com/sp0x/releaseinfo"
 )
 
 func main() {
